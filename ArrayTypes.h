@@ -160,10 +160,10 @@ template<class KeyT, class ValueT>
 class ArrayMultiMap : public ArrayMap<KeyT, ValueT>
 {
 public:
-	using typename ArrayMap<KeyT, ValueT>::value_type;
-	using typename ArrayMap<KeyT, ValueT>::base_type;
-	using typename ArrayMap<KeyT, ValueT>::iterator;
-	using typename ArrayMap<KeyT, ValueT>::const_iterator;
+	typedef typename ArrayMap<KeyT, ValueT>::value_type value_type;
+	typedef typename ArrayMap<KeyT, ValueT>::base_type base_type;
+	typedef typename ArrayMap<KeyT, ValueT>::iterator iterator;
+	typedef typename ArrayMap<KeyT, ValueT>::const_iterator const_iterator;
 	using ArrayMap<KeyT, ValueT>::find;
 	using ArrayMap<KeyT, ValueT>::clear;
 	using ArrayMap<KeyT, ValueT>::at;
