@@ -182,8 +182,8 @@ public:
 	size_t         count(const KeyT &key) const       { auto r = std::equal_range(base_type::begin(), base_type::end(), key, pair_sort_first_functor<value_type>()); return std::distance(r.first, r.second); }
 	iterator       lower_bound( const KeyT &key)      { return find(key); }
 	const_iterator lower_bound( const KeyT &key) const{ return find(key); }
-	iterator       upper_bound( const KeyT &key)      { auto u = std::upper_bound(base_type::begin(), base_type::end(), key, pair_sort_first_functor<value_type>()); return (u == base_type::end() || (u-1)->first != key) ? base_type::end() : u; }
-	const_iterator upper_bound( const KeyT &key) const{ auto u = std::upper_bound(base_type::begin(), base_type::end(), key, pair_sort_first_functor<value_type>()); return (u == base_type::end() || (u-1)->first != key) ? base_type::end() : u; }
+	iterator       upper_bound( const KeyT &key)      { auto u = std::upper_bound(base_type::begin(), base_type::end(), key, pair_sort_first_functor<value_type>()); return (u == base_type::begin() || u == base_type::end() || (u-1)->first != key) ? base_type::end() : u; }
+	const_iterator upper_bound( const KeyT &key) const{ auto u = std::upper_bound(base_type::begin(), base_type::end(), key, pair_sort_first_functor<value_type>()); return (u == base_type::begin() || u == base_type::end() || (u-1)->first != key) ? base_type::end() : u; }
 	std::pair<iterator, iterator>
 				   equal_range( const KeyT &key)      { return std::make_pair(lower_bound(key), upper_bound(key)); }
 	std::pair<const_iterator, const_iterator>
